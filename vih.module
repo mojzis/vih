@@ -1,0 +1,63 @@
+<?php
+/**
+ * @file
+ * Description here.
+ */
+
+
+function vih_views_api() {
+  return array(
+    'api' => 3,
+    );
+}
+
+function vih_views_data() {
+  $data['views']['filter_info'] = array(
+    'title' => t('Filter data Text area'),
+    'help' => t('Info about data in filter in a Text area.'),
+    'area' => array(
+      'handler' => 'vih_handler_area_filter_info',
+    ),
+  );
+  return $data;
+}
+
+// /*
+function vih_views_pre_render(&$view) {
+if ($view->name == 'rltest') {
+  # code...
+  //$view->style_plugin->render_fields($view->result);
+  dpm($view->style_plugin->theme_functions());
+  dpm($view);
+  $display = $view->display[$view->current_display];
+  $options = $display->display_options;
+  if (!empty($options['linkhref'])) {
+    # code...
+  }
+  dpm($view->display_handler,'pre handler');
+  dpm($display,'pre display');
+  // dpm($display->handler->get_plugin('row'));
+  dpm($view->style_plugin->row_plugin);
+}
+/*
+for the title :
+$view->build_info['title']
+$view->display_handler->options['title']
+*/
+
+}
+// */
+
+/*
+function vih_views_post_render(&$view) {
+  dpm($view,'postrender');
+  $display = $view->display[$view->current_display];
+  $options = $display->display_options;
+  if (!empty($options['linkhref'])) {
+    # code...
+  }
+  dpm($view->display_handler,'handler');
+  dpm($display,'display');
+
+}
+*/

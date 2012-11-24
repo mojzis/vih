@@ -1,0 +1,9 @@
+name = vih
+description = Views improvements helpers
+core = 7.x
+#dependencies[] = devel
+#configure = admin/config/vih
+
+files[] = handlers/vih_handler_area_filter_info.inc
+files[] = handlers/vih_handler_area_filter_info.inc
+files[] = plugins/vih_plugin_display_extender_rowlink.inc
