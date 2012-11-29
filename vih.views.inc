@@ -11,7 +11,7 @@ function vih_views_plugins() {
   $plugins = array();
   $plugins['row'] = array(
     'vih_addlink_row' => array(
-      'title' => 'add link',
+      'title' => 'Fields with a link',
       'help' => 'display link',
       'theme' => 'views_view_fields',
       'parent' => 'views_plugin_row_fields',

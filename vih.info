@@ -5,5 +5,5 @@ core = 7.x
 #configure = admin/config/vih
 
 files[] = handlers/vih_handler_area_filter_info.inc
-files[] = handlers/vih_handler_area_filter_info.inc
+files[] = plugins/addlink_row.inc
 files[] = plugins/vih_plugin_display_extender_rowlink.inc

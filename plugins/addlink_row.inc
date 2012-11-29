@@ -8,7 +8,7 @@
 class vih_addlink_row extends views_plugin_row_fields {
   function option_definition() {
     $options = parent::option_definition();
-    $options['linkclasses'] = array('default' => 'ctools-use-modal');
+    $options['linkclasses'] = array('default' => '');
     $options['linkhref'] = array('default' => '');
     return $options;
   }
@@ -18,14 +18,13 @@ class vih_addlink_row extends views_plugin_row_fields {
     $form['linkhref'] = array(
       '#type' => 'textfield',
       '#title' => 'Href',
-      '#default_value' => $this->options['linkhref'],
+      '#default_value' => isset($this->options['linkhref']) ? $this->options['linkhref'] : "",
       );
     $form['linkclasses'] = array(
       '#type' => 'textfield',
       '#title' => 'Classes',
-      '#default_value' => $this->options['linkclasses'],
+      '#default_value' => isset($this->options['linkclasses']) ? $this->options['linkclasses'] : "",
       );
-
   }
 
   function render($row) {

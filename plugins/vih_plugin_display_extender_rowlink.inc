@@ -55,7 +55,7 @@ class vih_plugin_display_extender_rowlink extends views_plugin_display_extender 
    * This output is returned as an array.
    */
   function options_summary(&$categories, &$options) {
-    // find if it was set or not
+    // TODO: find out if it was set or not
     $options['rowlink'] = array(
       'category' => 'format',
       'title' => t('Link around the row'),
@@ -65,7 +65,11 @@ class vih_plugin_display_extender_rowlink extends views_plugin_display_extender 
   }
 
   function options_submit(&$form, &$form_state) {
-    $this->display->set_option('linkhref',$form_state['values']['linkhref']);
-    $this->display->set_option('linkclasses',$form_state['values']['linkclasses']);
+    switch ($form_state['section']) {
+      case 'rowlink':
+        $this->display->set_option('linkhref',$form_state['values']['linkhref']);
+        $this->display->set_option('linkclasses',$form_state['values']['linkclasses']);
+      break;
+    }
   }
 }
