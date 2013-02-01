@@ -26,6 +26,11 @@ function vih_views_plugins() {
       'title' => t('Row link'),
       'handler' => 'vih_plugin_display_extender_rowlink',
       ),
+    'title_tokenizer' => array(
+      'title' => t('Tokenize title'),
+      'handler' => 'views_plugin_display_extender_titletoken',
+      ),
+
     );
   return $plugins;
 }

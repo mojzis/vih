@@ -10,7 +10,7 @@
  *
  * @ingroup views_display_plugins
  */
-class views_plugin_display_extender extends views_plugin {
+class views_plugin_display_extender_titletoken extends views_plugin {
   function init(&$view, &$display) {
     $this->view = $view;
     $this->display = $display;
@@ -20,12 +20,24 @@ class views_plugin_display_extender extends views_plugin {
   /**
    * Provide a form to edit options for this plugin.
    */
-  function options_definition_alter(&$options) { }
+  function options_definition_alter(&$options) { 
+    $options['tktitle'] = array('default' => '');
+  }
 
   /**
    * Provide a form to edit options for this plugin.
    */
-  function options_form(&$form, &$form_state) { }
+  function options_form(&$form, &$form_state) { 
+    switch ($form_state['section']) {
+      case 'title_tokenizer':
+        $form['tktitle'] = array(
+          '#type' => 'textfield',
+          '#title' => 'Title',
+          '#default_value' => $this->display->options['tktitle'],
+        );
+      break;
+    }
+  }
 
   /**
    * Validate the options form.
@@ -35,12 +47,20 @@ class views_plugin_display_extender extends views_plugin {
   /**
    * Handle any special handling on the validate form.
    */
-  function options_submit(&$form, &$form_state) { }
+  function options_submit(&$form, &$form_state) { 
+    switch ($form_state['section']) {
+      case 'title_tokenizer':
+        $this->display->set_option('tktitle',$form_state['values']['tktitle']);
+      break;
+    }
+  }
 
   /**
    * Set up any variables on the view prior to execution.
    */
-  function pre_execute() { }
+  function pre_execute() {
+    dpm($this->view->build_info);
+  }
 
   /**
    * Inject anything into the query that the display_extender handler needs.
@@ -52,7 +72,14 @@ class views_plugin_display_extender extends views_plugin {
    *
    * This output is returned as an array.
    */
-  function options_summary(&$categories, &$options) { }
+  function options_summary(&$categories, &$options) {
+      $options['title_tokenizer'] = array(
+      'category' => 'format',
+      'title' => t('Page title'),
+      'value' => 'see',
+      'desc' => t('Change page title.'),
+    );  
+  }
 
   /**
    * Static member function to list which sections are defaultable
