@@ -59,7 +59,10 @@ class views_plugin_display_extender_titletoken extends views_plugin {
    * Set up any variables on the view prior to execution.
    */
   function pre_execute() {
-    dpm($this->view->build_info);
+    //dpm($this->view->build_info);
+    //dpm($this->view);
+    //$this->view->build_info['title'] = 'fantomas';
+    //$this->view->display_handler->options['title'] = 'this is it';
   }
 
   /**
