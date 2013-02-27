@@ -2,8 +2,12 @@
 
 ## available now
 
-### title tokenizer plugin extender
-
 ### row link 
 
+### area handler for New link
+
+### area handler for actually filtered data
+
 ## future
+
+who knows :)
