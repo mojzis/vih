@@ -19,6 +19,13 @@ function vih_views_data() {
       'handler' => 'vih_handler_area_filter_info',
     ),
   );
+  $data['views']['new_link'] = array(
+    'title' => t('New link Text area'),
+    'help' => t('Create new link.'),
+    'area' => array(
+      'handler' => 'vih_handler_area_create_link',
+    ),
+  );
   return $data;
 }
 
